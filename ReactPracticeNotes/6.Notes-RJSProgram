@@ -1,0 +1,18 @@
+This.props.children:
+	Let's look at a React component called Clock:
+		<Clock>
+			12:49 AM
+		</Clock>
+
+	No that we've implemented Clock component, we'll need to access this "12:49 AM" in order to update it.
+
+	We can do this with children:
+		<Clock>
+			<Time />
+			<Period />
+		</Clock>
+	As you might have guessed, this.props.children is an array of components rather than just a single componenet, since there are multiple components nested.
+
+Intro to Text Sections:
+
+

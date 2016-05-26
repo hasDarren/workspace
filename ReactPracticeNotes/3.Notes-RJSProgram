@@ -1,0 +1,44 @@
+Beginning to create a React component:
+Need createClass method on the React object
+/*
+	Telling React to take out HelloWorld component and render it to the element with an ID of 'app'
+*/
+
+var React = require('react')
+var ReactDOM = require('react-dom')
+var HelloWorld = React.createClass({
+	render: function(){
+		return(
+			<div>
+				Hello World!
+			</div>
+		)
+	}
+});
+
+ReactDOM.render(<HelloWorld />, document.getElementById('app'));
+
+Notes on above:
+	Every component needs render method.
+
+	Components are essentially collections of HTML, CSS, JS and other data specific to that component.
+
+	ReactDOM.render(arg1, arg2)
+		->arg1 : component you want to render
+		->arg2 : the DOM node where you want to render the component.
+		(Use ReactDOM.render not React.render to make more modular)
+
+The HTML that is written in the render is ot html, but rather JSX
+
+JS vs JSX -> JSX simply allows us to write HTML like syntax which gets transformed to JS objects
+
+React then takes these JS objects and from them forms a "virtual DOM" or a JS representation of the actual DOM. This creates a win/win situation.
+
+Ex. of JSX transformed to once Webpack runs its transformation process:
+	var HelloWorld = React.createClass({
+		displayName: "HelloMessage",
+		render: function(){
+			return React.createElement("div", null, "Hello World");
+		}
+	});
+

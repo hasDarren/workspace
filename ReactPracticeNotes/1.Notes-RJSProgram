@@ -1,0 +1,36 @@
+Imperative (How)
+var numbers = [4,2,3,6];
+var total = 0;
+for(var i = 0; i < number.length; i++)
+	total += numbers[i]
+
+
+
+Declarative (What)
+var numbers = [4,2,3,6]
+numbers.reduce(function(previous, current)
+	return previous + current
+)	
+
+Is React Declarative?
+	Not Really...
+
+React Router:
+URL goes to Active Component
+
+Webpack:
+Bundling code into one package
+entry:
+Run through loaders and then spit out in output
+output:
+
+JSX => convert to javascript. done in Babel
+
+Babel:
+Code Transformation...From JSX to Javascript
+
+Axios:
+Use to make HTTP Requests
+
+Example App: 
+	Github Battle Game

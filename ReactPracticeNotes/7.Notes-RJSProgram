@@ -1,0 +1,53 @@
+7.Notes-RJSProgram
+	Stateless Function Componenets:
+	Most components in react will take in some data via props and output some UI - that is components with justa render method.
+
+	Example:
+		var HelloWorld = React.createClass({
+			render: function(){
+				return(
+					<div>Hello {this.props.name} </div>
+				)
+			}
+		})
+		ReactDOM.render(<HelloWorld name='Tyler' />, document.getElementById('app'))
+
+	We've done this before. A component that retunrs a div that says "Hello " + whatever.
+
+	This component just has a render method, that means we can remove the createClass abstraction and just use a plain function. Refactored to use stateless functional component, the example above would look like this:
+
+		function HelloWorld(props){
+			return (
+				<div>Hello {props.name}</div
+			)
+		}
+		ReactDOM.render(<HelloWorld name='Tyler' />, document.getElementById('app'))
+
+	PropTypes: A prototype in React are the middle ground in terms of type checking properties that are passed to your components.
+	<Icon
+		name='fontawesome|facebook-square'
+		size={70}
+		color='#3b5998'
+		style={styles.facebook} />
+
+	Implementation with PropTypes
+		var React = require('react');
+		var PropTypes = React.PropTypes
+		var Icon = React.createClass({
+			propTypes: {
+				name: PropTypes.string.isRequired,
+				size: PropTypes.number.isRequired,
+				color: PropTypes.string.isRequired,
+				stype: PropTypes.object
+			},
+			render: ReactDOM(...)
+		});
+
+		PropType functions:
+			propTypes.func
+			propTypes.boolean
+
+		(ES6)
+			var { array, object, number, function, boolean } = React.PropTypes
+
+			https://facebook.github.io/react/docs/reusable-components.html 

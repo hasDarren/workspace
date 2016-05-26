@@ -1,0 +1,113 @@
+Building UIs with Pure Functions and Function Composition:
+	f(d) = V
+		-> function takes in some Data and returns a View.
+	Ex.
+		var getProfilePic = function(username){
+			return 'https://photo.fb.com/' + username
+		}
+
+		var getProfileLink = function(username){
+			return 'https://www.fb.com' + username
+		}
+
+		var getProfileData = function(username){
+			return{
+				pic: getProfilePic(username),
+				link: getProfileLink(username)
+			}
+		}
+		getProfileData('darrenchu')
+
+	Three functions and one function invocation.
+
+	Now with React's render method
+		var ProfilePic = React.createClass({
+			render: function(){
+				return(
+					<img src={https://photo.fb.com/ + this.props.username} />
+				)
+			}
+		})
+		var ProfileLink = React.createClass({
+			render: function(){
+				return(
+					<a href={'https://www.fb.com/ + this.props.usernam'}> {props.username}</a>
+				)
+			}
+		})
+		var Avatar = React.createClass({
+			render: function(){
+				return(
+					<div>
+						<ProfilePic username={this.props.usernam}/>
+						<ProfileLink username={this.props.usernam}/>
+					</div>
+				)
+			}
+		})
+		<Avatar username = "darrenchu" />
+
+
+	Now with stateless function components:
+		var ProfilePic = function(props){
+			return (<img src={'https://photo.fb.com/' + props.username} />
+			)
+		}
+		var ProfileLink = function(props){
+			return (<a href={'https://fb.com/' + props.username}>{props.username}
+			</a>
+			)
+		}
+		var Avatar = function(props){
+			return(
+				<div>
+					<ProfilePic username={props.username} />
+					<ProfileLinke username={props.username} />
+				</div>
+			)
+		}
+
+		<Avatar username="darrenchu" />
+
+One thing that functions and components above have in common is they're all "pure functions".
+
+Fundamental piece of functional programming are pure functions.
+
+	-> Pure functions always return the same result given the same arguments
+	-> Pure function's execution doesn't depend on the state of the application
+	-> Pure functions don't modify the variables outside of their scope
+
+function add (x,y){
+	return x + y
+}
+
+This is a simple pure function. always same result given same arguments.
+
+var friends = ['Ryan','Michael','Dan']
+friends.slice(0,1) // 'Ryan'
+friends.slice(0,1) // 'Ryan'
+friends.slice(0,1) // 'Ryan'
+
+	Pure function
+
+Now compare
+
+var friends = ['Ryan','Michael','Dan']
+friends.splice(0,1) // 'Ryan'
+friends.splice(0,1) // 'Michael'
+friends.splice(0,1) // 'Dan'
+
+	Not pure function
+		-> invokes modified state
+
+Why are pure functions important in React? 
+	-> React's render method needs to be a pure function because it is a pure function.
+	
+
+
+
+
+
+
+
+

@@ -1,0 +1,61 @@
+NPM:
+	Want to use JS libraries? Install its module. (duh)
+	Modules are not just for library or framework code.
+	Programs composed of different modules (make highly cohesive modules)
+->How do we collaborate and efficiently share all of the different modules?
+
+CDN (Content Delivery Network)
+
+	Ex.
+	<script src = "http://cdn.cloudflare.com/ajax/libs/jquery/2.1.4/jquery/min.js"></script> 
+
+	or locally:
+	<script src = "libs/jquery.js"></script>
+
+	Problem: jQuery updates...need to swap out CDN for the new version.
+
+	Solution? 
+	Our Goals:
+
+	1) Make downloading different modules easier
+	2) Make upgrading to newer versions of our modules simpler as well
+
+	How to solve these goals? Create a package manager. (NPM)
+
+Webpack: 
+Why does this exist?
+	-> Code bundler
+		-> Takes code, transforms and bundles it.
+		-> Returns a brand new version of code.
+What problem does this solve?
+	-> Ex. Transform SASS or LESS code into CSS
+
+	 things to know about Webpack:
+	 1) Webpack needs to know the starting point of your application, or your root JS file.
+
+	 2) Webpack needs to know which transformations to make on your code.
+
+	 3) Webpack needs to know to which location it should save the new transformed code.
+
+	var HtmlWebpackPlugin = require('html-webpack-plugin')
+	var HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
+	template: __dirname + '/app/index.html',
+	filename: 'index.html',
+	inject: 'body'
+	});
+
+	module.exports = {
+  	entry: [
+    './app/index.js'
+  	],
+  	module: {
+  		loaders: [
+  			{test: /\.coffee$/, exclude: /node_modules/, loader: "coffee-loader"}
+  		]
+  	},
+  	output: {
+  		filename: "index_bundle.js",
+  		path: __dirname + '/dist'
+  	},
+  		plugins: [HTMLWebpackPluginConfig]
+	};
