@@ -70,8 +70,7 @@ public class RequestURLPull{
 
 /*site.name%2Cpublisher.name&filter_cthulhu=%5B%5D&session_token=8786b6842c27d4f289a6b8074b6210d011aca27e&
 start_date=2016-05-26T00%3A00%3A00.000&end_date=2016-05-26T23%3A59%3A59.999&
-response_format=json&limit=1001&sorts=created%20desc&api_key=a9402b339436fa7df70e0515d1c49b74*/
-
+response_format=json&limit=1001&sorts=created%20desc&api_key=*/
 
 
 /*String request = "https://api.mobileapptracking.com/v3/logs/advertisers/" 
